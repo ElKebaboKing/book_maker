@@ -1,0 +1,34 @@
+{
+    "characters": {
+        "叶天": "Ye Tian",
+        "元丰": "Yuanfeng",
+        "旭晨": "Xu Chen",
+        "星祖": "Star Ancestor"
+    },
+    "realms": {
+        "无上者": "Supreme Being",
+        "无敌者": "Invincible"
+    },
+    "domain_ancestor": {
+        "域祖": "Domain Ancestor",
+        "普通域祖": "Ordinary Domain Ancestor",
+        "精英域祖": "Elite Domain Ancestor",
+        "巅峰域祖": "Peak Domain Ancestor",
+        "无敌域祖": "Invincible Domain Ancestor",
+        "至强域祖": "Supreme Domain Ancestor"
+    },
+    "organizations": {
+        "鬼狐组织": "Ghost Fox Organization",
+        "源神阁": "Source God Pavilion"
+    },
+    "items": {
+        "永恒劫晶石": "Eternal Tribulation Crystal",
+        "灵源契约石": "Spirit Source Contract Stone"
+    },
+    "rules": {
+        "巅峰": "Peak",
+        "至强": "Supreme",
+        "无敌": "Invincible",
+        "禁忌": "Forbidden"
+    }
+}
