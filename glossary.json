@@ -25,6 +25,11 @@
         "永恒劫晶石": "Eternal Tribulation Crystal",
         "灵源契约石": "Spirit Source Contract Stone"
     },
+    "concepts": {
+        "湮灭": "Annihilation",
+        "泯灭": "Annihilation",
+        "涅槃": "Nirvana"
+    },
     "rules": {
         "巅峰": "Peak",
         "至强": "Supreme",
