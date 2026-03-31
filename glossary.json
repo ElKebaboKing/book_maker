@@ -21,6 +21,12 @@
         "鬼狐组织": "Ghost Fox Organization",
         "源神阁": "Source God Pavilion"
     },
+    "races": {
+        "毁灭族": "Destruction Race",
+        "湮灭族": "Annihilation Race",
+        "泯灭族": "Annihilation Race",
+        "寂灭族": "Extinction Race"
+    },
     "items": {
         "永恒劫晶石": "Eternal Tribulation Crystal",
         "灵源契约石": "Spirit Source Contract Stone"
@@ -30,11 +36,21 @@
         "泯灭": "Annihilation",
         "涅槃": "Nirvana"
     },
+    "stages": {
+        "入门": "Entry",
+        "小成": "Minor",
+        "大成": "Major",
+        "圆满": "Perfected",
+        "极限": "Limit",
+        "极致": "Extreme"
+    },
     "rules": {
         "巅峰": "Peak",
         "至强": "Supreme",
         "无敌": "Invincible",
         "禁忌": "Forbidden",
-        "域": "Domain"
+        "域": "Domain",
+        "极限": "Limit",
+        "极致": "Extreme"
     }
 }
