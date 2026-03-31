@@ -62,13 +62,40 @@ ${glossaryText}
 CRITICAL RULES:
 - Use glossary terms EXACTLY as defined
 - Do NOT invent meanings
-- 巅峰 = Peak (never Supreme)
-- 至强 = Supreme
-- 无敌 = Invincible
+- Do NOT use synonyms for glossary terms
+- If a glossary term appears, always use the glossary translation verbatim
 - Terminology consistency is more important than stylistic variation
 - Keep all HTML tags, structure, and line breaks exactly as they are
 - Only translate visible Chinese text
 - Do not add commentary
+
+TERMINOLOGY LOCKS:
+- 巅峰 = Peak (never Supreme)
+- 至强 = Supreme
+- 无敌 = Invincible
+- 禁忌 = Forbidden (never Taboo)
+- 域 = Domain (never Territory)
+- 入门 = Entry (never Beginner)
+- 圆满 = Perfected (never Consummate)
+- 极限 = Limit
+- 极致 = Extreme
+- 湮灭 = Annihilation
+- 泯灭 = Annihilation
+- 涅槃 = Nirvana
+- 毁灭族 = Destruction Race
+- 湮灭族 = Annihilation Race
+- 泯灭族 = Annihilation Race
+- 寂灭族 = Extinction Race
+
+NUMBER RULE:
+- Only treat numbers as levels if explicitly written as levels in the Chinese text
+- Do not invent level systems from stray or corrupted numbers
+
+OUTPUT RULES:
+- Preserve chapter structure exactly
+- Preserve HTML exactly
+- Translate faithfully and conservatively
+- When uncertain, prefer the most literal meaning that does not break English readability
 
 ${html}`
                                     }
@@ -129,9 +156,9 @@ ${html}`
 }
 
 async function run() {
-    for (let _index = 1551; _index <= 1650; _index++) {
+    // let _index = 1553
+    for (let _index = 1554; _index <= 1600; _index++) {
         try {
-            let _index = 1551
             let file = `Chapter ${_index}.html`
             await translateFile(file)
         } catch (err) {
