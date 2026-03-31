@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@google-cloud/vertexai": "^1.10.3",
+    "axios": "^1.13.2",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.3.1",
+    "he": "^1.2.0",
+    "install": "^0.13.0",
+    "jsdom": "^29.0.1",
+    "openai": "^6.32.0",
+    "prettier": "^3.8.1"
+  }
+}
