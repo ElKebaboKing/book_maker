@@ -98,16 +98,16 @@ ${html}`
 }
 
 async function run() {
-    // for (let _index = 1452; _index <= 1550; _index++) {
-    try {
-        let _index = 1451
-        let file = `Chapter ${_index}.html`
-        await translateFile(file)
-    } catch (err) {
-        console.error("Translation failed:", err.message)
-        process.exitCode = 1
+    for (let _index = 1452; _index <= 1550; _index++) {
+        try {
+            // let _index = 1451
+            let file = `Chapter ${_index}.html`
+            await translateFile(file)
+        } catch (err) {
+            console.error("Translation failed:", err.message)
+            process.exitCode = 1
+        }
     }
 }
-// }
 
 run()
