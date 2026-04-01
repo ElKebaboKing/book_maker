@@ -31,6 +31,10 @@
         "永恒劫晶石": "Eternal Tribulation Crystal",
         "灵源契约石": "Spirit Source Contract Stone"
     },
+    "objects": {
+        "石碑": "Stele",
+        "碑": "Stele"
+    },
     "concepts": {
         "湮灭": "Annihilation",
         "泯灭": "Annihilation",
@@ -44,6 +48,11 @@
         "极限": "Limit",
         "极致": "Extreme"
     },
+    "stage_vs_tier": {
+        "阶段": "Stage",
+        "层次": "Tier",
+        "层": "Tier"
+    },
     "rules": {
         "巅峰": "Peak",
         "至强": "Supreme",
@@ -52,6 +61,11 @@
         "域": "Domain",
         "极限": "Limit",
         "极致": "Extreme",
-        "圆满": "Perfected"
+        "圆满": "Perfected",
+        "阶段": "Stage",
+        "层次": "Tier",
+        "层": "Tier",
+        "石碑": "Stele",
+        "碑": "Stele"
     }
 }
