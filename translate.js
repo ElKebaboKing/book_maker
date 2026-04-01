@@ -1,24 +1,24 @@
 import 'dotenv/config'
 import fs from "fs"
 import path from "path"
-import fetch from "node-fetch"
-import FormData from "form-data"
+import { GoogleGenAI } from "@google/genai"
 
 // Load glossary (used to enforce consistent terminology across all chapters)
 const glossaryPath = path.join(process.cwd(), "glossary.json")
 const glossary = JSON.parse(fs.readFileSync(glossaryPath, "utf8"))
 
-// Load OpenAI API configuration
-const API_KEY = process.env.OPENAI_API_KEY
+// Load Gemini API configuration
+const API_KEY = process.env.GOOGLE_API_KEY
 if (!API_KEY) {
-    throw new Error("Missing OPENAI_API_KEY in .env")
+    throw new Error("Missing GOOGLE_API_KEY in .env")
 }
-const MODEL = process.env.OPENAI_MODEL || "gpt-5.4-mini"
+const MODEL = process.env.GEMINI_MODEL || "gemini-3-flash-preview"
+const ai = new GoogleGenAI({ apiKey: API_KEY })
 
-// Define input/output directories and batch file path
+// Define input/output directories and Gemini batch file path
 const dir = path.join(process.cwd(), "talent")
 const outDir = path.join(process.cwd(), "talent_tl")
-const batchFile = path.join(process.cwd(), "openai_batch_input.jsonl")
+const batchFile = path.join(process.cwd(), "gemini_batch_input.jsonl")
 
 // Ensure output directory exists (not used yet, but kept for later processing)
 fs.mkdirSync(outDir, { recursive: true })
@@ -93,24 +93,29 @@ function buildBatchRequest(file) {
     const prompt = buildPrompt(html)
 
     return {
-        custom_id: file,
-        method: "POST",
-        url: "/v1/responses",
-        body: {
-            model: MODEL,
-            input: prompt
+        key: file,
+        request: {
+            contents: [
+                {
+                    role: "user",
+                    parts: [{ text: prompt }]
+                }
+            ],
+            generationConfig: {
+                temperature: 0.2
+            }
         }
     }
 }
 
 // Main function:
 // - Iterates through chapter range
-// - Builds batch requests
-// - Writes them into a JSONL file for OpenAI Batch API
+// - Builds Gemini batch requests
+// - Writes them into a JSONL file for Gemini Batch API
 async function run() {
     const requests = []
 
-    for (let _index = 1601; _index <= 1650; _index++) {
+    for (let _index = 1701; _index <= 1750; _index++) {
         const file = `Chapter ${_index}.html`
         const filePath = path.join(dir, file)
 
@@ -131,62 +136,38 @@ async function run() {
 
     console.log(`Wrote ${requests.length} batch requests to ${batchFile}`)
 
-    // Step 1: Upload batch input file to OpenAI Files API
-    console.log("Uploading batch file...")
+    // Step 1: Upload batch input file to the Gemini File API
+    console.log("Uploading batch file to Gemini...")
 
-    const formData = new FormData()
-    formData.append("purpose", "batch")
-    formData.append("file", fs.createReadStream(batchFile))
-
-    const uploadRes = await fetch("https://api.openai.com/v1/files", {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${API_KEY}`
-        },
-        body: formData
+    const uploadedFile = await ai.files.upload({
+        file: batchFile,
+        config: {
+            displayName: path.basename(batchFile),
+            mimeType: "jsonl"
+        }
     })
 
-    const uploadData = await uploadRes.json()
+    console.log("Uploaded file name:", uploadedFile.name)
 
-    if (!uploadRes.ok) {
-        console.error("Upload failed:", uploadData)
-        return
-    }
+    // Step 2: Create Gemini batch job from the uploaded input file
+    console.log("Creating Gemini batch job...")
 
-    const fileId = uploadData.id
-    console.log("Uploaded file ID:", fileId)
-
-    // Step 2: Create batch
-    console.log("Creating batch job...")
-
-    const batchRes = await fetch("https://api.openai.com/v1/batches", {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${API_KEY}`,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            input_file_id: fileId,
-            endpoint: "/v1/responses",
-            completion_window: "24h"
-        })
+    const batchJob = await ai.batches.create({
+        model: MODEL,
+        src: uploadedFile.name,
+        config: {
+            displayName: `translation-${Date.now()}`
+        }
     })
-
-    const batchData = await batchRes.json()
-
-    if (!batchRes.ok) {
-        console.error("Batch creation failed:", batchData)
-        return
-    }
 
     console.log("Batch created successfully!")
-    console.log("Batch ID:", batchData.id)
-    console.log("Status:", batchData.status)
+    console.log("Batch name:", batchJob.name)
+    console.log("State:", batchJob.state)
 
-    // Save batch ID for later retrieval (used by fetch_results.js)
+    // Save batch name for later retrieval (used by fetch_results.js after it is updated)
     const batchIdFile = path.join(process.cwd(), "last_batch_id.txt")
-    fs.writeFileSync(batchIdFile, batchData.id, "utf8")
-    console.log(`Saved batch ID to ${batchIdFile}`)
+    fs.writeFileSync(batchIdFile, batchJob.name, "utf8")
+    console.log(`Saved batch name to ${batchIdFile}`)
 }
 
 run()
