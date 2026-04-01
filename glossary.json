@@ -6,7 +6,7 @@
         "星祖": "Star Ancestor"
     },
     "realms": {
-        "无上者": "Supreme Being",
+        "无上者": "Supreme",
         "无敌者": "Invincible"
     },
     "domain_ancestor": {
@@ -38,7 +38,10 @@
     "concepts": {
         "湮灭": "Annihilation",
         "泯灭": "Annihilation",
-        "涅槃": "Nirvana"
+        "涅槃": "Nirvana",
+        "神": "Divine",
+        "圣": "Sacred",
+        "神圣": "Divine"
     },
     "stages": {
         "入门": "Entry",
@@ -53,6 +56,30 @@
         "层次": "Tier",
         "层": "Tier"
     },
+    "numbered_tiers": {
+        "一重": "First-Tier",
+        "二重": "Second-Tier",
+        "三重": "Third-Tier",
+        "四重": "Fourth-Tier",
+        "五重": "Fifth-Tier",
+        "六重": "Sixth-Tier",
+        "七重": "Seventh-Tier",
+        "八重": "Eighth-Tier",
+        "九重": "Ninth-Tier",
+        "十重": "Tenth-Tier"
+    },
+    "numbered_supreme_tiers": {
+        "一重无上者": "First-Tier Supreme",
+        "二重无上者": "Second-Tier Supreme",
+        "三重无上者": "Third-Tier Supreme",
+        "四重无上者": "Fourth-Tier Supreme",
+        "五重无上者": "Fifth-Tier Supreme",
+        "六重无上者": "Sixth-Tier Supreme",
+        "七重无上者": "Seventh-Tier Supreme",
+        "八重无上者": "Eighth-Tier Supreme",
+        "九重无上者": "Ninth-Tier Supreme",
+        "十重无上者": "Tenth-Tier Supreme"
+    },
     "rules": {
         "巅峰": "Peak",
         "至强": "Supreme",
@@ -66,6 +93,11 @@
         "层次": "Tier",
         "层": "Tier",
         "石碑": "Stele",
-        "碑": "Stele"
+        "碑": "Stele",
+        "神": "Divine",
+        "圣": "Sacred",
+        "神圣": "Divine",
+        "重": "Tier",
+        "无上者": "Supreme"
     }
 }

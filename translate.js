@@ -1,6 +1,3 @@
-// Batch translation script for Chinese → English novel chapters
-// Generates a JSONL file compatible with OpenAI Batch API
-
 import 'dotenv/config'
 import fs from "fs"
 import path from "path"
@@ -56,33 +53,18 @@ CRITICAL RULES:
 - Do NOT invent meanings
 - Do NOT use synonyms for glossary terms
 - If a glossary term appears, always use the glossary translation verbatim
+- When a title, epithet, sect name, technique name, or title-like name has a clear semantic meaning in Chinese, prefer a natural and consistent English meaning rather than transliteration, unless the glossary explicitly locks a transliteration
+- Only keep transliteration for true personal names, place names, or terms the glossary explicitly preserves in transliterated form
 - Terminology consistency is more important than stylistic variation
 - Keep all HTML tags, structure, and line breaks exactly as they are
 - Only translate visible Chinese text
 - Do not add commentary
 
 TERMINOLOGY LOCKS:
-- 巅峰 = Peak (never Supreme)
-- 至强 = Supreme
-- 无敌 = Invincible
-- 禁忌 = Forbidden (never Taboo)
-- 域 = Domain (never Territory)
-- 入门 = Entry (never Beginner)
-- 圆满 = Perfected (never Consummate)
-- 极限 = Limit
-- 极致 = Extreme
-- 阶段 = Stage
-- 层次 = Tier
-- 层 = Tier when referring to ranked power levels
-- 石碑 = Stele (never Tablet)
-- 碑 = Stele (never Tablet)
-- 湮灭 = Annihilation
-- 泯灭 = Annihilation
-- 涅槃 = Nirvana
-- 毁灭族 = Destruction Race
-- 湮灭族 = Annihilation Race
-- 泯灭族 = Annihilation Race
-- 寂灭族 = Extinction Race
+- Follow the glossary for all locked terms and do not override it
+- Do not use synonyms for glossary-mapped terms
+- If a full phrase exists in the glossary, prefer the full-phrase mapping over translating character by character
+- Keep a term translated the same way every time once the glossary defines it
 
 NUMBER RULE:
 - Only treat numbers as levels if explicitly written as levels in the Chinese text
@@ -93,10 +75,12 @@ OUTPUT RULES:
 - Preserve HTML exactly
 - Translate faithfully and conservatively
 - When uncertain, prefer the most literal meaning that does not break English readability
-- Use Stage for cultivation progression (Entry Stage, Minor Stage, Major Stage, Perfected Stage)
-- Use Tier for ranked power levels (First-Tier, Second-Tier, etc.)
-- Use Stele for inscription/meditation objects, not Tablet
-- Do not use synonyms for locked glossary terms
+- Keep true personal names and place names consistently transliterated unless the glossary explicitly says otherwise
+- For meaningful titles, epithets, sect names, and title-like names, prefer one consistent English rendering rather than pinyin
+- Do not alternate between multiple English renderings for the same meaningful name or title
+- Example: if a title-like name means Myriad Laws, keep it as Myriad Laws consistently rather than switching between Wanfa, Myriad Laws, and Ten Thousand Laws
+- Follow glossary-defined stage, tier, rank, and title terminology exactly
+- Do not omit any part of a glossary-defined rank or title
 
 ${html}`
 }
@@ -126,7 +110,7 @@ function buildBatchRequest(file) {
 async function run() {
     const requests = []
 
-    for (let _index = 1554; _index <= 1600; _index++) {
+    for (let _index = 1601; _index <= 1650; _index++) {
         const file = `Chapter ${_index}.html`
         const filePath = path.join(dir, file)
 
