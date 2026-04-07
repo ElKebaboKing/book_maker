@@ -47,8 +47,9 @@ async function getBatch(batchId) {
 
 // Helper: download a Gemini file and save it locally
 async function downloadFile(fileName, destination) {
-    const fileContentBuffer = await ai.files.download({ file: fileName })
-    fs.writeFileSync(destination, fileContentBuffer.toString("utf8"), "utf8")
+    // In the current @google/genai SDK, files.download writes directly to disk
+    // and resolves with void rather than returning a Buffer.
+    await ai.files.download({ file: fileName, downloadPath: destination })
 }
 
 // Helper: extract translated HTML from one Gemini batch JSONL line
@@ -150,6 +151,9 @@ async function run() {
 
     console.log("Downloading output file...")
     await downloadFile(batch.dest.fileName, rawOutputFile)
+    if (!fs.existsSync(rawOutputFile)) {
+        throw new Error(`Download completed but output file was not created: ${rawOutputFile}`)
+    }
     console.log(`Saved raw batch output to ${rawOutputFile}`)
 
     writeTranslatedFiles(rawOutputFile)

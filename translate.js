@@ -101,7 +101,7 @@ function buildBatchRequest(file) {
                     parts: [{ text: prompt }]
                 }
             ],
-            generationConfig: {
+            generation_config: {
                 temperature: 0.2
             }
         }
