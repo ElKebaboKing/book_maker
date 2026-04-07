@@ -1,5 +1,5 @@
 pandoc combined.html \
-  -o YTIM_1700.epub \
-  --metadata title="Your Talent Is Mine 1700" \
+  -o YTIM_1750.epub \
+  --metadata title="Your Talent Is Mine 1750" \
   --split-level=1 \
   --toc

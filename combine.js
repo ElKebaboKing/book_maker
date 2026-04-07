@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const dir = 'talent_tl';
-const startChapter = 1601; // change this to the chapter number you want to start from
+const startChapter = 1701; // change this to the chapter number you want to start from
 
 const files = fs.readdirSync(dir)
   .filter(file => fs.statSync(path.join(dir, file)).isFile())
