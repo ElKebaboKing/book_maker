@@ -13,6 +13,12 @@ if (!API_KEY) {
     throw new Error("Missing GOOGLE_API_KEY in .env")
 }
 const MODEL = process.env.GEMINI_MODEL || "gemini-3-flash-preview"
+
+const originalLog = console.log;
+console.log = (...args) => originalLog(`[${new Date().toISOString()}]`, ...args);
+const originalWarn = console.warn;
+console.warn = (...args) => originalWarn(`[${new Date().toISOString()}]`, ...args);
+
 const ai = new GoogleGenAI({ apiKey: API_KEY })
 
 // Define input/output directories and Gemini batch file path
