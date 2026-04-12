@@ -8,13 +8,11 @@ import { JSDOM } from "jsdom"
 main()
 async function main() {
 
-    let _id = 1146
+    let _id = 31
     let i = _id
-    for (let i = 2800; i <= 3166; i++) {
+    for (let i = 31; i <= 170; i++) {
         await scrapeChapter({
-            // _link: `https://www.fanmtl.com/novel/i-can-copy-talents_${i}.html`,
-            // _link: `https://etudetranslations.com/novel/backlog-your-talent-is-mine/chapter-${i}/`,
-            _link: `https://www.novel543.com/0217202057/8090_${i}.html`,
+            _link: `https://freewebnovel.com/novel/slime-evolution/chapter-${i}`,
             _chapter: i,
         })
     }
@@ -41,7 +39,7 @@ async function scrapeChapter({ _link, _chapter, retryIndex }) {
                 //     .map(line => line.trim())
                 //     .join("\n")
 
-                fs.writeFileSync(`talent/Chapter ${_chapter}.html`, html, "utf8")
+                fs.writeFileSync(`slime/Chapter ${_chapter}.html`, html, "utf8")
             })
             .catch(err => async () => {
                 console.log(`index ${_chapter}: ${err.code}`)
