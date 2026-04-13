@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-const dir = 'talent_tl';
-const startChapter = 1701; // change this to the chapter number you want to start from
+const dir = 'slime';
+const startChapter = 31; // change this to the chapter number you want to start from
 
 const files = fs.readdirSync(dir)
   .filter(file => fs.statSync(path.join(dir, file)).isFile())
@@ -28,7 +28,7 @@ for (let i = 0; i < files.length; i += chunkSize) {
     .join('\n\n');
 
   const fileIndex = Math.floor(i / chunkSize) + 1;
-  const outputFile = `combined_tl_${fileIndex}.html`;
+  const outputFile = `slime_${fileIndex}.html`;
 
   fs.writeFileSync(outputFile, content);
 

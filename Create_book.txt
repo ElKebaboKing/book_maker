@@ -1,5 +1,5 @@
-pandoc talent_combined_tl/combined_12.html \
-  -o YTIM_1750.epub \
-  --metadata title="Your Talent Is Mine 1750" \
+pandoc slime_31-170.html \
+  -o SlimeEvolution_170.epub \
+  --metadata title="Slime Evolution 170" \
   --split-level=1 \
   --toc
