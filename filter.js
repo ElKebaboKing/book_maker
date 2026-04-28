@@ -19,9 +19,14 @@ for (const file of files) {
         continue;
     }
 
+    // Also keep the main <h1> heading if it appears before <div id="article">.
+    const beforeArticle = html.slice(0, openMatch.index);
+    const h1Regex = /<h1\b[^>]*>[\s\S]*?<\/h1>/i;
+    const h1Match = h1Regex.exec(beforeArticle);
+    const h1Content = h1Match ? `${h1Match[0]}\n\n` : "";
+
     // Start scanning right after the opening <div id="article"> tag.
-    const startIndex = openMatch.index;
-    let cursor = startIndex + openMatch[0].length;
+    let cursor = openMatch.index + openMatch[0].length;
     let depth = 1;
 
     // Match any opening or closing div tag so we can keep track of nesting.
@@ -43,7 +48,7 @@ for (const file of files) {
         if (depth === 0) {
             const articleContent = html.slice(cursor, tagMatch.index);
 
-            fs.writeFileSync(filePath, articleContent, "utf8");
+            fs.writeFileSync(filePath, h1Content + articleContent, "utf8");
             console.log(`Cleaned ${file}`);
             break;
         }
