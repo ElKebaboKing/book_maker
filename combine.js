@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const dir = 'copy_and_evolve';
+const dir = 'realms_of_myths_and_legends';
 const startChapter = 1; // change this to the chapter number you want to start from
 
 const files = fs.readdirSync(dir)
@@ -28,7 +28,7 @@ for (let i = 0; i < files.length; i += chunkSize) {
     .join('\n\n');
 
   const fileIndex = Math.floor(i / chunkSize) + 1;
-  const outputFile = `slime_${fileIndex}.html`;
+  const outputFile = `realms_${fileIndex}.html`;
 
   fs.writeFileSync(outputFile, content);
 
