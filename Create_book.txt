@@ -1,5 +1,5 @@
-pandoc slime_31-170.html \
-  -o SlimeEvolution_170.epub \
-  --metadata title="Slime Evolution 170" \
-  --split-level=1 \
+pandoc copy_and_evolve.html \
+  -o Copy_and_evolve.epub \
+  --metadata title="I Can Copy And Evolve Talents 1384" \
+  --split-level=4 \
   --toc

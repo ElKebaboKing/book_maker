@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-const dir = 'slime';
-const startChapter = 31; // change this to the chapter number you want to start from
+const dir = 'copy_and_evolve';
+const startChapter = 1; // change this to the chapter number you want to start from
 
 const files = fs.readdirSync(dir)
   .filter(file => fs.statSync(path.join(dir, file)).isFile())
@@ -16,7 +16,7 @@ const files = fs.readdirSync(dir)
     return chapterNumber >= startChapter;
   });
 
-const chunkSize = 50;
+const chunkSize = 500;
 
 for (let i = 0; i < files.length; i += chunkSize) {
   const chunk = files.slice(i, i + chunkSize);

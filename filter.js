@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const dir = path.join(process.cwd(), "slime");
+const dir = path.join(process.cwd(), "realms_of_myths_and_legends");
 
 const files = fs.readdirSync(dir).filter(f => f.endsWith(".html"));
 

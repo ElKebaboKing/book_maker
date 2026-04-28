@@ -4,54 +4,63 @@ import he from "he"
 import prettier from "prettier"
 import { JSDOM } from "jsdom"
 
+const folderPath = "realms_of_myths_and_legends"
 
 main()
 async function main() {
+    const startChapter = 1
+    const endChapter = 1293
 
-    let _id = 31
-    let i = _id
-    for (let i = 31; i <= 170; i++) {
-        await scrapeChapter({
-            _link: `https://freewebnovel.com/novel/slime-evolution/chapter-${i}`,
-            _chapter: i,
+    if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath, { recursive: true })
+    }
+
+    const existingFiles = new Set(fs.readdirSync(folderPath))
+    const missingChapters = []
+
+    for (let i = startChapter; i <= endChapter; i++) {
+        const expectedFileName = `Chapter ${i}.html`
+
+        if (!existingFiles.has(expectedFileName)) {
+            missingChapters.push(i)
+        }
+    }
+
+    if (missingChapters.length === 0) {
+        console.log("No chapters are missing")
+        return
+    }
+
+    console.log(`Missing chapters: ${missingChapters.join(", ")}`)
+
+    for (const chapter of missingChapters) {
+        scrapeChapter({
+            _link: `https://freewebnovel.com/novel/realm-of-myths-and-legends/chapter-${chapter}`,
+            _chapter: chapter,
         })
     }
 }
 
 
 
-async function scrapeChapter({ _link, _chapter, retryIndex }) {
-    try {
-        axios.get(_link)
-            .then(async res => {
-                const html = res.data
+async function scrapeChapter({ _link, _chapter, retryIndex = 1 }) {
+    while (retryIndex <= 20) {
+        try {
+            const res = await axios.get(_link)
+            const html = res.data
+            fs.writeFileSync(`${folderPath}/Chapter ${_chapter}.html`, html, "utf8")
+            console.log(`Saved chapter ${_chapter}`)
+            return
+        } catch (err) {
+            console.log(`Retry ${retryIndex}/20 for chapter ${_chapter}: ${err.code || err.message}`)
 
-                // // Use jsdom to parse and normalize broken HTML
-                // const dom = new JSDOM(html)
+            if (retryIndex >= 20) {
+                console.log(`Failed to scrape chapter ${_chapter} after 20 attempts`)
+                return
+            }
 
-                // // Serialize back to clean HTML (browser-like formatting)
-                // let cleanedHtml = dom.serialize()
-
-                // // Optional: simple indentation improvement
-                // cleanedHtml = cleanedHtml
-                //     .replace(/></g, ">\n<")
-                //     .split("\n")
-                //     .map(line => line.trim())
-                //     .join("\n")
-
-                fs.writeFileSync(`slime/Chapter ${_chapter}.html`, html, "utf8")
-            })
-            .catch(err => async () => {
-                console.log(`index ${_chapter}: ${err.code}`)
-                if (retryIndex == undefined) retryIndex = 1
-                if (retryIndex >= 20) return
-                else {
-                    retryIndex++
-                    await new Promise(res => setTimeout(res, 5000))
-                    return scrapeChapter({ _link: _link, _chapter: _chapter, retryIndex: retryIndex })
-                }
-            })
-    } catch (e) {
-        console.log("Failed to scrape chapter " + _chapter)
+            retryIndex++
+            await new Promise(res => setTimeout(res, 5000))
+        }
     }
 }
