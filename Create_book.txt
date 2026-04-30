@@ -1,5 +1,5 @@
-pandoc copy_and_evolve.html \
-  -o Copy_and_evolve.epub \
-  --metadata title="I Can Copy And Evolve Talents 1384" \
-  --split-level=4 \
+pandoc realms_of_myths_and_legends.html \
+  -o realms_of_myths_and_legends.epub \
+  --metadata title="Realms of Myths and Legends 1293" \
+  --split-level=1 \
   --toc
