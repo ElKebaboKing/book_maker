@@ -4,12 +4,13 @@ import he from "he"
 import prettier from "prettier"
 import { JSDOM } from "jsdom"
 
-const folderPath = "realms_of_myths_and_legends"
+let bookName = "shadow-slave"
+const folderPath = `all-books/${bookName}/${bookName}_raw`
 
 main()
 async function main() {
     const startChapter = 1
-    const endChapter = 1293
+    const endChapter = 2968
 
     if (!fs.existsSync(folderPath)) {
         fs.mkdirSync(folderPath, { recursive: true })
@@ -35,7 +36,7 @@ async function main() {
 
     for (const chapter of missingChapters) {
         scrapeChapter({
-            _link: `https://freewebnovel.com/novel/realm-of-myths-and-legends/chapter-${chapter}`,
+            _link: `https://freewebnovel.com/novel/${bookName}/chapter-${chapter}`,
             _chapter: chapter,
         })
     }

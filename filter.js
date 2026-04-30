@@ -1,18 +1,31 @@
 import fs from "fs";
 import path from "path";
 
-const dir = path.join(process.cwd(), "realms_of_myths_and_legends");
+let bookName = "shadow-slave"
 
-const files = fs.readdirSync(dir).filter(f => f.endsWith(".html"));
+const folderPath = `all-books/${bookName}/${bookName}_raw`
+const outputDir = `all-books/${bookName}/${bookName}_filtered`;
+
+if (!fs.existsSync(outputDir))
+    fs.mkdirSync(outputDir, { recursive: true });
+
+
+const files = fs.readdirSync(folderPath).filter(f => f.endsWith(".html"));
 
 for (const file of files) {
-    const filePath = path.join(dir, file);
+    const filePath = path.join(folderPath, file);
+    const outputPath = path.join(outputDir, file);
 
     const html = fs.readFileSync(filePath, "utf8");
 
+    const normalizeText = (text) =>
+        text.normalize("NFKD").replace(/[^\x00-\x7F]/g, "");
+
+    const cleanedHtml = normalizeText(html);
+
     // Find the opening tag for <div id="article">.
     const articleOpenTag = /<div\b[^>]*\bid=["']article["'][^>]*>/i;
-    const openMatch = articleOpenTag.exec(html);
+    const openMatch = articleOpenTag.exec(cleanedHtml);
 
     if (!openMatch) {
         console.warn(`No #article found in ${file}`);
@@ -21,7 +34,7 @@ for (const file of files) {
 
     // Extract <title> and convert it into an <h1>
     const titleRegex = /<title\b[^>]*>([\s\S]*?)<\/title>/i;
-    const titleMatch = titleRegex.exec(html);
+    const titleMatch = titleRegex.exec(cleanedHtml);
     const titleContent = titleMatch ? `<h1>${titleMatch[1].trim()}</h1>\n\n` : "";
 
     // Start scanning right after the opening <div id="article"> tag.
@@ -33,30 +46,30 @@ for (const file of files) {
     divTagRegex.lastIndex = cursor;
 
     let tagMatch;
-    while ((tagMatch = divTagRegex.exec(html)) !== null) {
+    while ((tagMatch = divTagRegex.exec(cleanedHtml)) !== null) {
         const tag = tagMatch[0];
 
-        if (/^<div\b/i.test(tag)) {
+        if (/^<div\b/i.test(tag))
             depth += 1;
-        } else if (/^<\/div\b/i.test(tag)) {
+        else if (/^<\/div\b/i.test(tag))
             depth -= 1;
-        }
+
 
         // When depth returns to 0, we have reached the matching closing
         // tag for <div id="article"> rather than the first nested </div>.
         if (depth === 0) {
-            const articleContent = html.slice(cursor, tagMatch.index);
+            const articleContent = cleanedHtml.slice(cursor, tagMatch.index);
 
-            fs.writeFileSync(filePath, titleContent + articleContent, "utf8");
+            fs.writeFileSync(outputPath, titleContent + articleContent, "utf8");
             console.log(`Cleaned ${file}`);
             break;
         }
     }
 
     // If we never got back to depth 0, the HTML structure is broken.
-    if (depth !== 0) {
+    if (depth !== 0)
         console.warn(`Could not find closing </div> for #article in ${file}`);
-    }
+
 }
 
 console.log("All files cleaned ✔️");

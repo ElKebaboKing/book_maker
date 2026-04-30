@@ -1,5 +1,5 @@
-pandoc realms_of_myths_and_legends.html \
-  -o realms_of_myths_and_legends.epub \
-  --metadata title="Realms of Myths and Legends 1293" \
+pandoc all-books/shadow-slave/shadow-slave_combined/shadow-slave.html \
+  -o all-books/shadow-slave/shadow-slave.epub \
+  --metadata title="Shadow Slave 2968" \
   --split-level=1 \
   --toc
