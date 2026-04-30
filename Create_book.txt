@@ -1,5 +1,5 @@
-pandoc all-books/shadow-slave/shadow-slave_combined/shadow-slave.html \
-  -o all-books/shadow-slave/shadow-slave.epub \
-  --metadata title="Shadow Slave 2968" \
+pandoc all-books/cultivation-online-novel/cultivation-online-novel_combined/cultivation-online-novel_1.html \
+  -o all-books/cultivation-online-novel/cultivation-online-novel.epub \
+  --metadata title="Cultivation Online 2406" \
   --split-level=1 \
   --toc

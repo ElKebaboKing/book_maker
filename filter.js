@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-let bookName = "shadow-slave"
+let bookName = "cultivation-online-novel"
 
 const folderPath = `all-books/${bookName}/${bookName}_raw`
 const outputDir = `all-books/${bookName}/${bookName}_filtered`;
