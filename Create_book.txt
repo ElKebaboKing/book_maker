@@ -1,5 +1,8 @@
-pandoc all-books/cultivation-online-novel/cultivation-online-novel_combined/cultivation-online-novel_1.html \
-  -o all-books/cultivation-online-novel/cultivation-online-novel.epub \
-  --metadata title="Cultivation Online 2406" \
+weakest-beast-tamer-gets-all-sss-dragons
+pandoc all-books/weakest-beast-tamer-gets-all-sss-dragons/weakest-beast-tamer-gets-all-sss-dragons_combined/weakest-beast-tamer-gets-all-sss-dragons_1.html \
+  -o all-books/weakest-beast-tamer-gets-all-sss-dragons/weakest-beast-tamer-gets-all-sss-dragons-2.epub \
+  --metadata title="Weakest Best Tamer Gets All SSS Dragons 982" \
   --split-level=1 \
   --toc
+
+  

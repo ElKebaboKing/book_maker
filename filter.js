@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-let bookName = "cultivation-online-novel"
+let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
+// let bookName = "my-talents-name-is-generator"
 
 const folderPath = `all-books/${bookName}/${bookName}_raw`
 const outputDir = `all-books/${bookName}/${bookName}_filtered`;

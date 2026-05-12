@@ -4,13 +4,14 @@ import he from "he"
 import prettier from "prettier"
 import { JSDOM } from "jsdom"
 
-let bookName = "cultivation-online-novel"
+let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
+// let bookName = "my-talents-name-is-generator"
 const folderPath = `all-books/${bookName}/${bookName}_raw`
 
 main()
 async function main() {
-    const startChapter = 1
-    const endChapter = 2406
+    const startChapter = 963
+    const endChapter = 982
 
     if (!fs.existsSync(folderPath)) {
         fs.mkdirSync(folderPath, { recursive: true })
