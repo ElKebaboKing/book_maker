@@ -1,8 +1,12 @@
 import fs from "fs";
 import path from "path";
 
-let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
+// let bookName = "shadow-slave"
+// let bookName = "slime-evolution"
+// let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
 // let bookName = "my-talents-name-is-generator"
+let bookName = "global-elf-cut-off-the-hu-and-return-to-the-ancestral-gyarados-at-the-beginning"
+
 
 const folderPath = `all-books/${bookName}/${bookName}_raw`
 const outputDir = `all-books/${bookName}/${bookName}_filtered`;

@@ -1,18 +1,22 @@
 import fs from 'fs'
 import path from 'path'
 
-
-let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
+// let bookName = "shadow-slave"
+// let bookName = "slime-evolution"
+// let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
 // let bookName = "my-talents-name-is-generator"
-const folderPath = `all-books/${bookName}/${bookName}_filtered`
+let bookName = "global-elf-cut-off-the-hu-and-return-to-the-ancestral-gyarados-at-the-beginning"
+
+
+const folderPath = `all-books/${bookName}/${bookName}_raw`
 const outputDir = `all-books/${bookName}/${bookName}_combined`;
 
 if (!fs.existsSync(outputDir))
   fs.mkdirSync(outputDir, { recursive: true });
 
 
-const startChapter = 963; // change this to the chapter number you want to start from
-const chunkSize = 5000;
+const startChapter = 1; // change this to the chapter number you want to start from
+const chunkSize = 231;
 
 const files = fs.readdirSync(folderPath)
   .filter(file => fs.statSync(path.join(folderPath, file)).isFile())

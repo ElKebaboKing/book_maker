@@ -1,68 +1,158 @@
 import axios from "axios"
 import fs from "fs"
 import he from "he"
-import prettier from "prettier"
 import { JSDOM } from "jsdom"
 
-let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
+// let bookName = "slime-evolution"
+// let bookName = "shadow-slave"
+// let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
 // let bookName = "my-talents-name-is-generator"
+let bookName = "global-elf-cut-off-the-hu-and-return-to-the-ancestral-gyarados-at-the-beginning"
+
+const chapterSlugPrefix = "trxs7746_"
+const apiUrl = "https://alpha.mtlbooks.com/api/v1/chapters/read"
 const folderPath = `all-books/${bookName}/${bookName}_raw`
 
 main()
 async function main() {
-    const startChapter = 963
-    const endChapter = 982
+    const startChapter = 1
+    const endChapter = 231
 
     if (!fs.existsSync(folderPath)) {
         fs.mkdirSync(folderPath, { recursive: true })
     }
 
-    const existingFiles = new Set(fs.readdirSync(folderPath))
-    const missingChapters = []
+    const chaptersToScrape = []
 
     for (let i = startChapter; i <= endChapter; i++) {
-        const expectedFileName = `Chapter ${i}.html`
+        const filePath = `${folderPath}/Chapter ${i}.html`
 
-        if (!existingFiles.has(expectedFileName)) {
-            missingChapters.push(i)
+        if (!isValidChapterFile(filePath)) {
+            chaptersToScrape.push(i)
         }
     }
 
-    if (missingChapters.length === 0) {
-        console.log("No chapters are missing")
+    if (chaptersToScrape.length === 0) {
+        console.log("No chapters are missing or invalid")
         return
     }
 
-    console.log(`Missing chapters: ${missingChapters.join(", ")}`)
+    console.log(
+        `Scraping ${chaptersToScrape.length} missing or invalid chapters: ${chaptersToScrape.join(", ")}`,
+    )
 
-    for (const chapter of missingChapters) {
-        scrapeChapter({
-            _link: `https://freewebnovel.com/novel/${bookName}/chapter-${chapter}`,
-            _chapter: chapter,
-        })
+    const failedChapters = []
+    let nextIndex = 0
+    const concurrency = 4
+
+    async function worker() {
+        while (nextIndex < chaptersToScrape.length) {
+            const chapter = chaptersToScrape[nextIndex++]
+            const saved = await scrapeChapter({ _chapter: chapter })
+
+            if (!saved) {
+                failedChapters.push(chapter)
+            }
+        }
+    }
+
+    await Promise.all(
+        Array.from(
+            { length: Math.min(concurrency, chaptersToScrape.length) },
+            worker,
+        ),
+    )
+
+    if (failedChapters.length > 0) {
+        console.error(`Failed chapters: ${failedChapters.sort((a, b) => a - b).join(", ")}`)
+        process.exitCode = 1
+        return
+    }
+
+    console.log(`Saved all ${chaptersToScrape.length} chapters with article content`)
+}
+
+function isValidChapterFile(filePath) {
+    if (!fs.existsSync(filePath)) {
+        return false
+    }
+
+    try {
+        const html = fs.readFileSync(filePath, "utf8")
+        const document = new JSDOM(html).window.document
+        const articleText = document.querySelector("#article")?.textContent?.trim() || ""
+
+        return articleText.length >= 100
+    } catch {
+        return false
     }
 }
 
+async function scrapeChapter({ _chapter, retryIndex = 1 }) {
+    const maximumAttempts = 5
 
-
-async function scrapeChapter({ _link, _chapter, retryIndex = 1 }) {
-    while (retryIndex <= 20) {
+    while (retryIndex <= maximumAttempts) {
         try {
-            const res = await axios.get(_link)
-            const html = res.data
-            fs.writeFileSync(`${folderPath}/Chapter ${_chapter}.html`, html, "utf8")
-            console.log(`Saved chapter ${_chapter}`)
-            return
-        } catch (err) {
-            console.log(`Retry ${retryIndex}/20 for chapter ${_chapter}: ${err.code || err.message}`)
+            const res = await axios.post(
+                apiUrl,
+                {
+                    novel_slug: bookName,
+                    chapter_slug: `${chapterSlugPrefix}${_chapter}`,
+                },
+                {
+                    headers: { "Content-Type": "application/json" },
+                    timeout: 30_000,
+                },
+            )
+            const chapter = res.data?.result?.chapter
 
-            if (retryIndex >= 20) {
-                console.log(`Failed to scrape chapter ${_chapter} after 20 attempts`)
-                return
+            if (!chapter || typeof chapter.content !== "string" || chapter.content.trim().length < 100) {
+                throw new Error("MTL Books returned no chapter content")
             }
 
+            const title = `${bookName} - Chapter ${chapter.chapter_number}: ${chapter.chapter_title}`
+            const paragraphs = chapter.content
+                .trim()
+                .split(/\r?\n\s*\r?\n/)
+                .map(paragraph => `<p>${he.encode(paragraph.trim()).replace(/\r?\n/g, "<br>")}</p>`)
+                .join("\n")
+            const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>${he.encode(title)}</title>
+</head>
+<body>
+<div id="article">
+${paragraphs}
+</div>
+</body>
+</html>
+`
+
+            fs.writeFileSync(`${folderPath}/Chapter ${_chapter}.html`, html, "utf8")
+            console.log(`Saved chapter ${_chapter} (${chapter.content.length} characters)`)
+            return true
+        } catch (err) {
+            const status = err.response?.status
+            console.log(
+                `Retry ${retryIndex}/${maximumAttempts} for chapter ${_chapter}: ${status || err.code || err.message}`,
+            )
+
+            if (retryIndex >= maximumAttempts) {
+                console.log(`Failed to scrape chapter ${_chapter} after ${maximumAttempts} attempts`)
+                return false
+            }
+
+            const retryAfter = Number(err.response?.headers?.["retry-after"])
+            const delay = Number.isFinite(retryAfter)
+                ? retryAfter * 1000
+                : Math.min(2 ** (retryIndex - 1) * 1000, 30_000)
+
             retryIndex++
-            await new Promise(res => setTimeout(res, 5000))
+            await new Promise(resolve => setTimeout(resolve, delay))
         }
     }
+
+    return false
 }
