@@ -1,15 +1,15 @@
 import fs from "fs";
 import path from "path";
 
-// let bookName = "shadow-slave"
-// let bookName = "slime-evolution"
-// let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
-// let bookName = "my-talents-name-is-generator"
-let bookName = "global-elf-cut-off-the-hu-and-return-to-the-ancestral-gyarados-at-the-beginning"
+// const bookSlug = "shadow-slave"
+// const bookSlug = "slime-evolution"
+// const bookSlug = "weakest-beast-tamer-gets-all-sss-dragons"
+// const bookSlug = "my-talents-name-is-generator"
+const bookSlug = "global-pokemon-starting-by-snatching-an-atavistic-gyarados"
 
 
-const folderPath = `all-books/${bookName}/${bookName}_raw`
-const outputDir = `all-books/${bookName}/${bookName}_filtered`;
+const folderPath = `all-books/${bookSlug}/${bookSlug}_raw`
+const outputDir = `all-books/${bookSlug}/${bookSlug}_filtered`;
 
 if (!fs.existsSync(outputDir))
     fs.mkdirSync(outputDir, { recursive: true });

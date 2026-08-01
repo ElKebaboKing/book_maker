@@ -3,15 +3,17 @@ import fs from "fs"
 import he from "he"
 import { JSDOM } from "jsdom"
 
-// let bookName = "slime-evolution"
-// let bookName = "shadow-slave"
-// let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
-// let bookName = "my-talents-name-is-generator"
-let bookName = "global-elf-cut-off-the-hu-and-return-to-the-ancestral-gyarados-at-the-beginning"
+// const bookSlug = "slime-evolution"
+// const bookSlug = "shadow-slave"
+// const bookSlug = "weakest-beast-tamer-gets-all-sss-dragons"
+// const bookSlug = "my-talents-name-is-generator"
+const bookSlug = "global-pokemon-starting-by-snatching-an-atavistic-gyarados"
+const bookTitle = "Global Pokémon: Starting by Snatching an Atavistic Gyarados"
+const sourceNovelSlug = "global-elf-cut-off-the-hu-and-return-to-the-ancestral-gyarados-at-the-beginning"
 
 const chapterSlugPrefix = "trxs7746_"
 const apiUrl = "https://alpha.mtlbooks.com/api/v1/chapters/read"
-const folderPath = `all-books/${bookName}/${bookName}_raw`
+const folderPath = `all-books/${bookSlug}/${bookSlug}_raw`
 
 main()
 async function main() {
@@ -96,7 +98,7 @@ async function scrapeChapter({ _chapter, retryIndex = 1 }) {
             const res = await axios.post(
                 apiUrl,
                 {
-                    novel_slug: bookName,
+                    novel_slug: sourceNovelSlug,
                     chapter_slug: `${chapterSlugPrefix}${_chapter}`,
                 },
                 {
@@ -110,7 +112,7 @@ async function scrapeChapter({ _chapter, retryIndex = 1 }) {
                 throw new Error("MTL Books returned no chapter content")
             }
 
-            const title = `${bookName} - Chapter ${chapter.chapter_number}: ${chapter.chapter_title}`
+            const title = `${bookTitle} - Chapter ${chapter.chapter_number}: ${chapter.chapter_title}`
             const paragraphs = chapter.content
                 .trim()
                 .split(/\r?\n\s*\r?\n/)
