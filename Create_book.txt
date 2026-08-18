@@ -5,4 +5,11 @@ pandoc all-books/weakest-beast-tamer-gets-all-sss-dragons/weakest-beast-tamer-ge
   --split-level=1 \
   --toc
 
+slime-evolution
+pandoc all-books/slime-evolution/slime-evolution_combined/slime-evolution_1.html \
+  -o all-books/slime-evolution/slime-evolution-366.epub \
+  --metadata title="Slime Evolution 366" \
+  --split-level=1 \
+  --toc
+
   
