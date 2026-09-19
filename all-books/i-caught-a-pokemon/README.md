@@ -7,6 +7,8 @@
 - Chinese source chapters: `i-caught-a-pokemon_raw/Chapter N.html`
 - English translations: `i-caught-a-pokemon_translated/`
 
+The 69shuba catalog currently contains 1,459 entries. All 1,459 Chinese HTML files were downloaded on 2026-09-19. English translation has not started.
+
 Download or resume all indexed entries from the repository root:
 
 ```sh
