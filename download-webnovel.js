@@ -50,7 +50,12 @@ async function loadCatalog() {
             const index = Number(line.match(/^(\d+)\./)?.[1])
             const url = line.match(/\((https?:\/\/www\.webnovel\.com\/book\/i-caught-a-pokemon_35795835208280805\/[^\s)]+)/)?.[1]
             const title = line.match(/"([^"]+)"\)\s*$/)?.[1]
-            return url && title ? { index, title, url: url.replace(/^http:/, "https:") } : null
+            return url && title ? {
+                index,
+                chineseCatalogIndex: index <= 91 ? index : index + 1,
+                title,
+                url: url.replace(/^http:/, "https:"),
+            } : null
         }).filter(Boolean)
         if (entries.length !== 150 || entries.some((entry, i) => entry.index !== i + 1) || new Set(entries.map(entry => entry.url)).size !== entries.length) {
             throw new Error(`Unexpected catalog: ${entries.length} entries`)
@@ -81,7 +86,7 @@ async function saveChapter(chapter) {
     if (boilerplateIndex >= 0) content = content.slice(0, boilerplateIndex).trim()
     const attributionIndex = content.indexOf("© WebNovel")
     if (attributionIndex >= 0 && attributionIndex < 600) content = content.slice(attributionIndex + "© WebNovel".length).trim()
-    if (content.length < 500 || !/[A-Za-z]/.test(content) || /Unlock this chapter|Purchase this chapter|Just a moment/i.test(content)) {
+    if (content.length < 500 || !/[A-Za-z]/.test(content) || /Unlock this chapter|Purchase this chapter/i.test(content)) {
         throw new Error("Chapter text missing or locked")
     }
 
