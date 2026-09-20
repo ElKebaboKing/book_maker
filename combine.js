@@ -12,7 +12,7 @@ if (!fs.existsSync(outputDir))
   fs.mkdirSync(outputDir, { recursive: true });
 
 
-const startChapter = 165; // change this to the chapter number you want to start from
+const startChapter = 204; // change this to the chapter number you want to start from
 const chunkSize = 5000;
 
 const files = fs.readdirSync(folderPath)

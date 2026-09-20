@@ -2,6 +2,8 @@
 
 The published 150 English chapters and their matching Chinese originals remain the fixed style reference. This file records new decisions so later chapters keep the same names.
 
+Type terminology: `飞行属性` and `飞行系` are **Flying type / Flying-type**, never a wind type. Use *wind* only for actual air movement or an established move name such as Icy Wind or Fairy Wind.
+
 | Chinese | English | First new English chapter | Note |
 | --- | --- | --- | --- |
 | 阿弘 | Richie | 154 | Ash's new League rival; official English anime spelling. |
@@ -74,5 +76,39 @@ The published 150 English chapters and their matching Chinese originals remain t
 | 柑橘岛 / 柑橘运动场 / 勇次 | Pummelo Island / Pummelo Stadium / Drake | 244 | Orange League headquarters, its stadium, and Supreme Gym Leader. |
 | 甜柑岛 | Rind Island | 245 | Uninhabited island on the Magikarp migration route; established English anime name. |
 | 绿河 | Quincy T. Quackenpoker | 246 | Elderly Pokémon Watcher studying Magikarp; established English anime name. |
+| 暴鲤龙的mega石 | Gyaradosite / Mega Stone for Gyarados | 257 | Official English name for the stone offered to Ethan by Quackenpoker. |
+| 卡尔 | Carl | 259 | Vice president of the Orange League; English rendering of his name. |
+| 胜利者皇宫 / 胜利者殿堂 | Palace of Victory / Orange League Hall of Fame | 260 | Building beside Pummelo Stadium honoring Winner's Cup victors; established English anime names. |
+| 温橘 | warm-season mandarins | 262 | Local Orange Islands citrus variety that ripens during the current season. |
+| 大都会电视台 | Metropolitan TV | 264 | News outlet named by a reporter outside Pummelo Stadium. |
+| 阿迟 | Achi | 279 | Fruit vendor's grandson; transliteration of his given name. |
+| 吉花市 | Cherrygrove City | 280 | Johto port where Ethan and Sabrina arrive; established English game name. |
+| 若叶镇 | New Bark Town | 280 | Johto town where Looker asks Ethan to meet him; established English game name. |
+| 空木博士 | Professor Elm | 281 | Researcher with a laboratory in New Bark Town; established English game name. |
+| 小银 | Silver | 282 | Giovanni's red-haired son; established English game name. |
+| 水君 / 炎帝 / 雷公 / 凤王 | Suicune / Entei / Raikou / Ho-Oh | 285 | Legendary Pokémon of Johto; use established English names. |
+| 烧焦塔 / 凤王卫队 | Burned Tower / Ho-Oh's guardians | 285 | Tower and collective name in the source's account of the legendary beasts. |
+| 小锯鳄 | Totodile | 286 | Johto starter Pokémon recovered from Silver and returned to Professor Elm. |
+| 小锯鳄 | Totodile | 286 | Professor Elm's stolen starter Pokémon; established English species name. |
+| 玉虹大学 | Celadon University | 287 | University where Professor Elm studied; localized from Celadon City's established English name. |
+| 火球鼠 | Cyndaquil | 287 | Johto Fire-type starter; established English species name. |
+| 卡吉镇 | Mahogany Town | 287 | Johto town where Looker plans to attack a Team Rocket base; established English game name. |
+| 桔梗市 / 桔梗道馆 | Violet City / Violet Gym | 288 | Johto city and Gym Ethan plans to challenge first; established English game names. |
+| 烟墨市 / 烟墨道馆 | Blackthorn City / Blackthorn Gym | 288 | Alternate route considered before Mahogany Town; established English game names. |
+| 擂钵山 | Mt. Mortar | 288 | Mountain named in Casey's Electabuzz victory song; established English game name. |
+| 奈奈 | Casey | 288 | Baseball-loving new Trainer with Chikorita; established English anime name. |
+| 迷惑森林 | Mysterious Forest | 290 | Forest passed on the way to Violet City; descriptive rendering of the source name. |
+| 顿甲之谷 | Donphan Valley | 290 | Valley on the route to Violet City; established anime location name. |
+| 城北摇晃的塔 / 喇叭芽之塔 | Sprout Tower | 290 | Violet City's swaying tower with monks; named explicitly in Chapter 297. |
+| 阿速 / 飞翼徽章 | Falkner / Zephyr Badge | 290 | Violet Gym Leader and his badge; established English game names. |
+| 速天 | Walker | 291 | Falkner's father and predecessor as Violet Gym Leader; established English manga name. |
+| 姆克儿 / 姆克鸟 / 姆克鹰 | Starly / Staravia / Staraptor | 292 | Evolution line introduced when Falkner sends out Staraptor; established English Pokémon names. |
+| 姆克儿 / 姆克鸟 / 姆克鹰 | Starly / Staravia / Staraptor | 292 | Johto Gym battle names in the source; established English species names. |
+| 勇鸟猛攻 / 舍身特性 | Brave Bird / Reckless Ability | 293 | Staraptor's recoil move and Ethan's guess about its Ability; established English game terms. |
+| 波克基古 / 幸福宝可梦 | Togetic / Happiness Pokémon | 294 | Falkner's final partner and its Pokédex category; established English species terms. |
+| 岩石封锁 / 尖石攻击 / 天使之吻 / 妖精之风 | Rock Tomb / Stone Edge / Sweet Kiss / Fairy Wind | 295 | Official English move names in the Crystal Onix versus Togetic battle. |
+| 水晶大钢蛇 | Crystal Steelix | 296 | Crystal Onix's evolved form; retain its distinctive crystal descriptor. |
 
 Source continuity note: raw file 161 brings Professor Cerise, Yoshino, Souta, Ren, and Parker to the lodge, then allocates all six bedrooms without assigning a room to Ren or Parker. The translation preserves that omission rather than inventing sleeping arrangements.
+
+Raw file 288 first names Silver's three Pokémon as Sneasel, Zubat, and Gastly, then calls the injured middle Pokémon Golbat near the end. Chapter 285 keeps Zubat, matching its introduction in the preceding chapter.
