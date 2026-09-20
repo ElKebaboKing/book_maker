@@ -108,6 +108,10 @@ Type terminology: `飞行属性` and `飞行系` are **Flying type / Flying-type
 | 波克基古 / 幸福宝可梦 | Togetic / Happiness Pokémon | 294 | Falkner's final partner and its Pokédex category; established English species terms. |
 | 岩石封锁 / 尖石攻击 / 天使之吻 / 妖精之风 | Rock Tomb / Stone Edge / Sweet Kiss / Fairy Wind | 295 | Official English move names in the Crystal Onix versus Togetic battle. |
 | 水晶大钢蛇 | Crystal Steelix | 296 | Crystal Onix's evolved form; retain its distinctive crystal descriptor. |
+| 冰雪小径 / 冰之洞窟 | Ice Path / Ice Cave | 298 | Official name of the route to Blackthorn City and the local nickname for its frozen cave. |
+| 星期兄弟 / 星琪儿 / 星琪山 | Week Siblings / Tuscany / Wesley | 299 | Seven Johto siblings with day-themed names; the Tuesday sister and Wednesday brother appear here. |
+| 失望奖章 / 心跳奖章 | Disappointment Badge / Heartbeat Badge | 300 | Wesley's and Tuscany's homemade rewards for defeating them. |
+| 龙穴 / 升龙徽章 / 小椿 / 阿渡 | Dragon's Den / Rising Badge / Clair / Lance | 300 | Blackthorn's dragon sanctuary, Gym badge, Gym Leader, and her Elite Four cousin; established English franchise names. |
 
 Source continuity note: raw file 161 brings Professor Cerise, Yoshino, Souta, Ren, and Parker to the lodge, then allocates all six bedrooms without assigning a room to Ren or Parker. The translation preserves that omission rather than inventing sleeping arrangements.
 
