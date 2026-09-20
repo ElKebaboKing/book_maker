@@ -1,11 +1,13 @@
 import fs from "fs";
 import path from "path";
 
-let bookName = "slime-evolution"
+// let bookName = "slime-evolution"
+let bookName = "i-caught-a-pokemon"
 // let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
 // let bookName = "my-talents-name-is-generator"
 
-const folderPath = `all-books/${bookName}/${bookName}_raw`
+// const folderPath = `all-books/${bookName}/${bookName}_raw`
+const folderPath = `all-books/${bookName}/${bookName}_continued`
 const outputDir = `all-books/${bookName}/${bookName}_filtered`;
 
 if (!fs.existsSync(outputDir))

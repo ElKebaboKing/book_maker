@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-let bookName = "slime-evolution"
+let bookName = "i-caught-a-pokemon"
+// let bookName = "slime-evolution"
 // let bookName = "weakest-beast-tamer-gets-all-sss-dragons"
 // let bookName = "my-talents-name-is-generator"
 const folderPath = `all-books/${bookName}/${bookName}_filtered`
@@ -11,7 +12,7 @@ if (!fs.existsSync(outputDir))
   fs.mkdirSync(outputDir, { recursive: true });
 
 
-const startChapter = 324; // change this to the chapter number you want to start from
+const startChapter = 165; // change this to the chapter number you want to start from
 const chunkSize = 5000;
 
 const files = fs.readdirSync(folderPath)
