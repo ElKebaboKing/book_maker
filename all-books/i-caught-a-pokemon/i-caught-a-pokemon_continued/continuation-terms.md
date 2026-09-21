@@ -112,6 +112,42 @@ Type terminology: `飞行属性` and `飞行系` are **Flying type / Flying-type
 | 星期兄弟 / 星琪儿 / 星琪山 | Week Siblings / Tuscany / Wesley | 299 | Seven Johto siblings with day-themed names; the Tuesday sister and Wednesday brother appear here. |
 | 失望奖章 / 心跳奖章 | Disappointment Badge / Heartbeat Badge | 300 | Wesley's and Tuscany's homemade rewards for defeating them. |
 | 龙穴 / 升龙徽章 / 小椿 / 阿渡 | Dragon's Den / Rising Badge / Clair / Lance | 300 | Blackthorn's dragon sanctuary, Gym badge, Gym Leader, and her Elite Four cousin; established English franchise names. |
+| 龙之圣域 / 黑暗球 | Dragon Holy Land / Dark Ball | 301 | The Dragon Tamer clan's forbidden sanctuary and the Pokémon hunter's ball that steals others' Pokémon. |
+| 比夏斯 / 卡布 | Vicious, the Iron Masked Marauder / Kabu | 302 | Team Rocket executive from the fourth Pokémon movie and the Dragon Tamer clan's elderly butler. Use Vicious for later personal references. |
+| 龙之洞窟 / 泼濯日 / 泼濯仪式 / 龙之牙 | Dragon Cave / Cleansing Day / cleansing ceremony / Dragon Fang | 303 | Clan's formal name for the Dragon's Den, its three-year ritual and day, and the canonical Pokémon item it washes. |
+| 龙之祠堂 / 祈祷的火焰 / 龙之长老 | Dragon Shrine / Flame of Prayer / Dragon Elder | 304 | The valley shrine, its centuries-old sacred flame, and the clan's Elder. |
+| 三傻鸟 | the three Legendary birds | 305 | Ethan's joking collective reference to the Legendary birds he leaves out of this battle. |
+| 喷火龙进化石 X / Y / 超级喷火龙 X / Y | Charizardite X / Charizardite Y / Mega Charizard X / Mega Charizard Y | 310 | Charizard's two Mega Stones and forms. X changes Fire/Flying to Fire/Dragon; Y stays Fire/Flying. Ethan chooses Y. |
+| 莎莉娜 / 粉色的梦 / 一切都是泡沫 | Serena / Pink Dream / All Is Bubbles | 312 | Kalos girl from Ethan's earlier life in this world, distinct from Pokémon Tech's Serena Yuto; their messaging handles. Raw also writes his handle as 全都是泡沫. |
+| 御龙师家族族长 / 宝可梦搜查官 | chief of the Dragon Tamer clan / Pokémon investigator | 313 | Titles used for Lance's unnamed uncle and for Lance's investigative work. |
+| 幻象光线 / 精神强念 / 催眠术 / 食梦 | Psybeam / Psychic / Hypnosis / Dream Eater | 314 | Official English move names in Gardevoir's first Blackthorn Gym round; Dream Eater is planned but not used. |
+| 七夕青鸟 / 超级七夕青鸟 / 陀螺旋 | Altaria / Mega Altaria / Gyro Ball | 315 | Clair's Dragon/Flying Pokémon, its Dragon/Fairy Mega form, and Crystal Steelix's spinning move; source uses a nonstandard Chinese move name for Gyro Ball. |
+| 咬碎 / 猛撞 | Crunch / Take Down | 316 | Official move names in Crystal Steelix and Altaria's second Blackthorn Gym round. |
+| 幼基拉斯 / 班基拉斯 / 准神 | Larvitar / Tyranitar / pseudo-legendary | 318 | Ethan finds a wild Larvitar and explains the strength of its final evolution using his knowledge of the games. |
+| 哈克龙 / 紧束 / 沙暴 | Dragonair / Wrap / Sandstorm | 319 | Dratini evolves during Larvitar's capture; these are the official English species and move names. |
+| 愤怒之湖 / 暴鲤龙之湖 | Lake of Rage / Gyarados Lake | 320 | Johto lake beside Mahogany Town, known for its Gyarados. |
+| 零 / 丹墨 | Zero / Danmo | 320 | Zero is the bald International Police commander's codename; Ethan thinks of Danmo, who is absent from the camp. |
+| 一树 / 梨花 | Will / Karen | 321 | Johto Psychic- and Dark-type specialists recruited for the raid; Ethan knows they will later join the Elite Four. |
+| 玩家 | Player | 321 | Ethan's masked codename, already used in published English Chapters 65–66. |
+| 兰斯 / 拉姆达 | Lance / Lambda | 322 | Team Rocket executives named this way in published English Chapter 67; distinguish the Rocket executive Lance from Elite Four member Lance in context. |
+| 辰己 / R计划 | Tyson / Project R | 323 | English anime name of the Rocket operations captain at the Lake of Rage and name of the wave-based operation he leads. |
+| 席拉奴博士 | Professor Sebastian | 324 | English anime name of Project R's scientist at the Lake of Rage. |
+| 南波博士 / 塞格博士 | Dr. Namba / Dr. Zager | 325 | Other Team Rocket scientists whom the narration contrasts with Professor Sebastian; use their English anime names. |
+| 椰蛋树 | Exeggutor | 326 | Will's Grass/Psychic Pokémon, knocked out by the empowered Gyarados's Hydro Pump. |
+| 迷唇姐 / 黑鲁加 / 黑暗鸦 / 不良蛙 | Jynx / Houndoom / Murkrow / Croagunk | 327 | Pokémon Will, Karen, and Looker use in the effort to stop Ethan's rampaging Gyarados. |
+| 天然雀 | Natu | 328 | Psychic/Flying Tiny Bird Pokémon that catches Sabrina's attention near Mahogany Town. |
+| 柳伯 / 卡吉道馆 / 冰冻徽章 / 冬天的柳伯 | Pryce / Mahogany Gym / Glacier Badge / Pryce of Winter | 329 | Elderly Ice-type Gym Leader, his Gym and badge, and his nickname. |
+| 西玛 / 长毛猪 / 白海狮 | Sheila / Piloswine / Dewgong | 330 | Mahogany Gym's referee, Pryce's long-lost partner in Ethan's recollection, and Pryce's first battle choice. |
+
+Continuity note: Crystal Steelix retains its typing, but Ethan says its unusual crystal form resists water and that he found it living underwater as Crystal Onix. Chapter 316 uses this trait in the Gym pool.
+
+Continuity note: Chapter 307 distinguishes Vicious's Dark Balls from Mewtwo's black Poké Balls. The former turn captured Pokémon evil and stronger; the latter track targets and can take Pokémon from ordinary Poké Balls.
+
+Source continuity note: Raw Chapter 307 describes Vicious's spiked vest as black, while raw Chapter 311 calls it red. The translations preserve both descriptions without inventing an explanation.
+
+Continuity note: Chapter 311 reveals that Gengar secretly kept one unused Dark Ball while destroying the others in Chapter 309. Ethan holds it as a keepsake and hopes never to use it.
+
+Continuity note: In raw Chapter 304, Lance calls Ethan's Pokémon Dragon-type and Ethan assumes he means Gyarados. Canonical Gyarados is Water/Flying. Chapter 301 preserves their dialogue and thought without changing its typing in narration.
 
 Source continuity note: raw file 161 brings Professor Cerise, Yoshino, Souta, Ren, and Parker to the lodge, then allocates all six bedrooms without assigning a room to Ren or Parker. The translation preserves that omission rather than inventing sleeping arrangements.
 
