@@ -12,8 +12,8 @@ const sources = {
     freewebnovel: {
         type: "freewebnovel",
         bookName: bookName,
-        startChapter: 324,
-        endChapter: 366,
+        startChapter: 433,
+        endChapter: 450,
     },
     mtlbooks: {
         type: "mtlbooks",
