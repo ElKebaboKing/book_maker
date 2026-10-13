@@ -1,0 +1,32 @@
+{
+  "source": "https://wtr-lab.com/en/novel/19293/pocket-monsters-start-with-an-ai-system",
+  "chapters": [
+    {
+      "index": 1,
+      "id": 16121458,
+      "title": "A miserable start",
+      "url": "https://wtr-lab.com/en/novel/19293/pocket-monsters-start-with-an-ai-system/chapter-1",
+      "modelId": 102,
+      "characters": 8318,
+      "sha256": "d23bca1d9ab743733604b9ecf60102185d7bac7dbd139ba77138ccf1e1030834"
+    },
+    {
+      "index": 2,
+      "id": 16121459,
+      "title": "System Limitations",
+      "url": "https://wtr-lab.com/en/novel/19293/pocket-monsters-start-with-an-ai-system/chapter-2",
+      "modelId": 102,
+      "characters": 7655,
+      "sha256": "19467f0a5d17dbdf4e970d2dc5fa5c23ea4c5868b941f40ab0b8c88e4d8c0ff8"
+    },
+    {
+      "index": 3,
+      "id": 16121460,
+      "title": "Life and death",
+      "url": "https://wtr-lab.com/en/novel/19293/pocket-monsters-start-with-an-ai-system/chapter-3",
+      "modelId": 102,
+      "characters": 8197,
+      "sha256": "b6577da2bd32b36544dccdd53c6b5f6dfda1def986c56932269c778842aad7db"
+    }
+  ]
+}
